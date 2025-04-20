@@ -1,31 +1,31 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as v;
+
+
 
 .card {
+    width: 250px;
+    height: 480px;
     display: flex;
     flex-direction: column;
-    width: 280px;
+    justify-content: space-between;
     background: white;
     border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: v.$highlights 0px 0px 0px 3px, #06182ca6 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
     transition: transform 0.3s ease;
-    height: 100%;
+
 
     &:hover {
-        transform: translateY(-5px);
+        transform: translateY(-9px);
+        // border: 1px solid v.$tertiary;
     }
 }
 
-.thumbnail {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
+
 
 .placeholder {
     width: 100%;
     height: 200px;
-    background: $primary;
+    background: v.$primary;
     color: white;
     display: flex;
     align-items: center;
@@ -33,21 +33,24 @@
     font-size: 0.9rem;
 }
 
+
 .content {
-    padding: $spacer;
+    padding: v.$spacer;
     flex: 1;
     display: flex;
     flex-direction: column;
+    overflow-y: scroll; // Re-enable overflow-y for scrolling
+    scrollbar-width: none;
 }
 
 .title {
     margin: 0 0 0.5rem;
     font-size: 1.2rem;
-    color: $primary;
+    color: v.$primary;
 }
 
 .authors {
-    color: $secondary;
+    color: v.$secondary;
     font-size: 0.9rem;
     margin: 0 0 0.5rem;
 }
@@ -60,6 +63,42 @@
 
 .categories {
     font-size: 0.8rem;
-    color: $tertiary;
+    color: v.$tertiary;
     margin: 0;
+    font-weight: bold;
+}
+
+.footer {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.detailsButton {
+    background: v.$primary;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+}
+
+
+.thumbnailContainer {
+    margin: 10px 0;
+    ;
+    width: 100%;
+    aspect-ratio: 6 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.thumbnail {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
 }

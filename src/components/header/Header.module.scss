@@ -1,9 +1,10 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as v;
+;
 
 .header {
-    background: $primary;
+    background: v.$primary;
     color: white;
-    padding: $spacer;
+    padding: v.$spacer;
     display: flex;
     align-items: center;
     justify-content: space-between;

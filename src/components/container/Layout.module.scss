@@ -1,4 +1,4 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as v;
 
 .page {
     display: flex;
@@ -8,5 +8,5 @@
 
 .content {
     flex: 1;
-    padding: $spacer;
+    padding: v.$spacer;
 }

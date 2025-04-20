@@ -1,9 +1,10 @@
-@import '../../styles/variables';
+@use '../../styles/variables' as v;
 
 .grid {
     display: flex;
     flex-wrap: wrap;
-    gap: $spacer;
     justify-content: center;
-    padding: $spacer 0;
+    padding: v.$spacer 0;
+    gap: 30px;
+    ;
 }

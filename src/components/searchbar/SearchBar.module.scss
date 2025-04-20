@@ -1,4 +1,4 @@
-@use '../../styles/variables' as *;
+@use '../../styles/variables' as v;
 
 .container {
     display: flex;
@@ -12,29 +12,42 @@
     display: flex;
     width: 100%;
     max-width: 500px;
+    padding: 20px;
 }
 
 .input {
     flex: 1;
-    padding: $spacer;
+    padding: v.$spacer;
     width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
+    border-radius: 10px 0 0 10px;
     font-size: 1rem;
     transition: border-color 0.3s ease-in-out;
     border-right: none;
+    height: 20px;
+    border: 2px solid v.$highlights;
+
+    &::placeholder {
+        color: v.$highlights;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: v.$primary;
+        color: v.$primary;
+    }
+
+
 }
 
 .button {
-    padding: $spacer;
+    padding: v.$spacer;
     border: none;
-    background: $primary;
+    background: v.$highlights;
+    ;
     color: white;
     font-size: 1rem;
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 10px 10px 0;
     cursor: pointer;
 
-    &:hover {
-        background: darken($primary, 10%);
-    }
+
 }
