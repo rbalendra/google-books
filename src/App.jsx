@@ -3,7 +3,7 @@ import SearchBar from './components/searchbar/SearchBar';
 import Layout from './components/container/Layout';
 import BookList from './components/booklist/BookList';
 import { fetchBooks } from './utils/booksAPI';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
 	const [books, setBooks] = useState([]); //hold the search results
@@ -13,6 +13,10 @@ function App() {
 		const results = await fetchBooks(query);
 		setBooks(results);
 	};
+
+	useEffect(() => {
+		handleSearch('sci-fi');
+	}, []);
 
 	return (
 		<Layout>

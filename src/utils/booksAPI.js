@@ -5,7 +5,7 @@ const API_KEY = import.meta.env.VITE_GOOGLE_BOOKS_API_KEY;
 export async function fetchBooks(query) {
 	try {
 		//https://developers.google.com/books/docs/v1/using
-		const url = `${BASE_URL}?q=${query}&key=${API_KEY}`;
+		const url = `${BASE_URL}?q=${query}&orderBy=newest&key=${API_KEY}`;
 		const response = await fetch(url);
 
 		if (!response.ok) {
