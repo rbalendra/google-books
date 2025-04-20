@@ -15,16 +15,6 @@
     flex-direction: column;
 }
 
-.title {
-    margin: 0;
-    font-size: 1.5rem;
-    letter-spacing: 0.05em;
-}
-
-.subtitle {
-    font-size: 0.8rem;
-    opacity: 0.8;
-}
 
 .logo {
     width: 40px;
@@ -36,4 +26,11 @@
     border-radius: 4px;
     font-size: 0.75rem;
     text-transform: uppercase;
+}
+
+
+.brandLogo {
+    height: 100px; // Adjust as needed
+    width: auto;
+    vertical-align: middle;
 }
