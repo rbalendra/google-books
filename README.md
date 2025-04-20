@@ -1,12 +1,7 @@
-# React + Vite
+Google Books API Search Engine
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Outline
 
-Currently, two official plugins are available:
+This project will require you to use React and Asynchronous programming.
+The aim is for the user to be able to search for a book inside the Google Books database and to be able to get more details about a certain title.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
