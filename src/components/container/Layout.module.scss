@@ -1,10 +1,12 @@
+@import '../../styles/variables';
+
 .page {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
-// .content {
-//     flex: 1;
-//     padding: $spacer;
-// }
+.content {
+    flex: 1;
+    padding: $spacer;
+}
