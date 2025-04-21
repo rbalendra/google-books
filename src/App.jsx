@@ -15,13 +15,14 @@ function App() {
 	};
 
 	useEffect(() => {
-		handleSearch('sci-fi');
+		handleSearch('non-fiction');
 	}, []);
 
 	return (
 		<Layout>
 			<SearchBar onSearch={handleSearch} />
 			<BookList books={books} />
+			<Footer />
 		</Layout>
 	);
 }

@@ -4,7 +4,6 @@ import logo from '../../assets/logo.svg';
 const Header = () => {
 	return (
 		<header className={styles.header}>
-			<div className={styles.logo}>📚</div>
 			<div className={styles.brand}>
 				{' '}
 				<a href='/' style={{ color: 'inherit', textDecoration: 'none' }}>
