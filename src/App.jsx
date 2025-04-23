@@ -22,7 +22,6 @@ function App() {
 		<Layout>
 			<SearchBar onSearch={handleSearch} />
 			<BookList books={books} />
-			<Footer />
 		</Layout>
 	);
 }

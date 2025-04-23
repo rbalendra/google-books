@@ -1,8 +1,8 @@
-@import './styles/variables';
+@use './styles/variables' as v;
 
 body {
-	background: $background;
-	color: $text;
-	font-family: $font-family-base;
+	background: v.$background;
+	color: v.$text;
+	font-family: v.$font-family-base;
 	margin: 0;
 }
