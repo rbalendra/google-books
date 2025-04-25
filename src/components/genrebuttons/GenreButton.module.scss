@@ -1,0 +1,47 @@
+@use '../../styles/variables' as v;
+
+.container {
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.title {
+    color: v.$primary;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.genreButton {
+    padding: 0.5rem 1rem;
+    background-color: v.$primary;
+    color: v.$background;
+    border: 2px solid v.$primary;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 600;
+    transition: all 0.2s ease;
+
+
+    &:hover {
+        background-color: v.$highlights;
+        transform: translateY(-2px);
+        color: v.$primary;
+    }
+
+    &.active {
+        background-color: v.$tertiary;
+        color: v.$background;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+}
