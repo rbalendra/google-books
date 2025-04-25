@@ -4,19 +4,23 @@ import Modal from '../modal/Modal';
 
 const BookCard = ({ book }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [imageError, setImageError] = useState(false); //state to handle image error
 
 	//get all the book info
 	const { volumeInfo, searchInfo } = book; //destructure the book object to get volumeInfo and searchInfo
-	const title = volumeInfo.title;
+	const { pageCount, publisher, publishedDate, title } = volumeInfo;
 	const authors = volumeInfo.authors?.join(', ') || 'Unknown Author'; //if authors is undefined, set to 'Unknown Author'
-	const thumbnail = volumeInfo.imageLinks?.thumbnail || 'No Image Available'; //optional chaining to avoid errors if imageLinks is undefined
+	const thumbnail = volumeInfo.imageLinks?.thumbnail;
 	const description =
 		volumeInfo.description?.slice(0, 200) + '...' || 'No Description Available'; //if description is undefined, set to 'No Description Available'
 	const descriptionDetailed =
 		volumeInfo.description || 'No Description Available';
 	const categories =
 		volumeInfo.categories?.join(', ') || 'No Categories Available'; //if categories is undefined, set to 'No Categories Available'
-	const { pageCount, publisher, publishedDate, Description } = volumeInfo;
+
+	const handleImageError = () => {
+		setImageError(true); //set imageError to true if there is an error loading the image
+	};
 
 	return (
 		<div>
@@ -27,10 +31,11 @@ const BookCard = ({ book }) => {
 							src={thumbnail}
 							alt={`${title} cover`}
 							className={styles.thumbnail}
+							onError={handleImageError} //call handleImageError if there is an error loading the image
 						/>
 					</div>
 				) : (
-					<div className={styles.placeholder}>No image</div>
+					<div className={styles.placeholder}>No cover available</div>
 				)}
 				<div className={styles.content}>
 					<h2 className={styles.title}>{title}</h2>
@@ -47,15 +52,24 @@ const BookCard = ({ book }) => {
 					</button>
 				</div>
 			</div>
-
+			{/* /* Add a modal to show more details about the book when the button is
+			clicked */}
 			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
 				<h2>{title}</h2>
 				<p style={{ display: 'flex', justifyContent: 'center' }}>
-					<img
-						src={thumbnail}
-						alt={`${title} cover`}
-						className={styles.thumbnail}
-					/>
+					{thumbnail && !imageError ? (
+						<img
+							src={thumbnail}
+							alt={`${title} cover`}
+							className={styles.thumbnail}
+							onError={handleImageError}
+						/>
+					) : (
+						<div>
+							<p>No Cover Available</p>
+							<p>{title}</p>
+						</div>
+					)}
 				</p>
 				<p>
 					<strong>Author:</strong> {authors}
@@ -65,6 +79,12 @@ const BookCard = ({ book }) => {
 				</p>
 				<p>
 					<strong>Publisher:</strong> {publisher}
+				</p>
+				<p>
+					<strong>Published date:</strong> {publishedDate}
+				</p>
+				<p>
+					<strong>Pages:</strong> {pageCount}
 				</p>
 			</Modal>
 		</div>
