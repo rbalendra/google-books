@@ -18,7 +18,6 @@ export async function fetchBooks(query) {
 		const data = await response.json();
 		return data.items || [];
 	} catch (error) {
-		// Handle errors gracefully
 		console.error('Error fetching books:', error);
 		return []; // Return an empty array in case of error
 	}

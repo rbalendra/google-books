@@ -22,6 +22,7 @@ function App() {
 			setLoading(true); // Set loading to true when starting a search
 			//// Reset active genre when doing a regular search
 			if (!query.includes('subject:')) {
+				// Check if the query is not a genre search
 				setActiveGenre(null);
 			}
 			const results = await fetchBooks(query);
@@ -35,7 +36,7 @@ function App() {
 
 	const handleGenreSelect = (genre) => {
 		setActiveGenre(genre);
-		handleSearch(`subject: ${genre}`);
+		handleSearch(`subject:${genre}`);
 	};
 
 	useEffect(() => {
