@@ -40,7 +40,7 @@ function App() {
 	};
 
 	useEffect(() => {
-		handleSearch('non-fiction');
+		handleSearch('computers'); // Fetch initial books on component mount
 	}, []);
 
 	if (loading) {

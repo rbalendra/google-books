@@ -3,13 +3,13 @@ import styles from './GenreButton.module.scss';
 
 const GenreButton = ({ onSelectGenre, activeGenre }) => {
 	const popularGenres = [
-		'Fiction',
-		'Non-Fiction',
-		'Science Fiction',
-		'History',
-		'Self-help',
-		'Romance',
-		'Biography',
+		'fiction',
+		'programming',
+		'science fiction',
+		'history',
+		'self-help',
+		'romance',
+		'biography',
 	];
 
 	return (

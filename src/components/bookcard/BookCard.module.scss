@@ -51,6 +51,13 @@
     color: v.$primary;
 }
 
+.subtitle {
+    font-size: .9rem;
+    color: v.$secondary;
+    margin: 0 0 0.5rem;
+    font-style: italic;
+}
+
 .authors {
     color: v.$secondary;
     font-size: 0.9rem;
