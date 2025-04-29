@@ -16,7 +16,7 @@ const GenreButton = ({ onSelectGenre, activeGenre }) => {
 		'travel',
 		'cookbook',
 		'medicine',
-		'social science',
+		'philosophy',
 		'psychology',
 	];
 
