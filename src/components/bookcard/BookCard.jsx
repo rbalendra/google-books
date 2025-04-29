@@ -1,17 +1,20 @@
 import { useState } from 'react';
 import styles from './BookCard.module.scss';
 import Modal from '../modal/Modal';
+import { IoIosImages } from 'react-icons/io';
 
 const BookCard = ({ book }) => {
-	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false); //state to handle modal open and close
 	const [imageError, setImageError] = useState(false); //state to handle image error
 
-	console.log(book); //log the book object to the console to see its structure
+	// console.log(book); //log the book object to the console to see its structure
+
 	//get all the book info
-	const { volumeInfo } = book; //destructure the book object to get volumeInfo and searchInfo
-	const { pageCount, publisher, publishedDate, title, subtitle } = volumeInfo;
+	console.log(book.volumeInfo); //log the book object to the console to see its structure
+	const { volumeInfo } = book; //destructure the book object to get volumeInfo
+	const { pageCount, publisher, publishedDate, title, subtitle } = volumeInfo; //destructure the volumeInfo object to get pageCount, publisher, publishedDate, title and subtitle
 	const authors = volumeInfo.authors?.join(', ') || 'Unknown Author'; //if authors is undefined, set to 'Unknown Author'
-	const thumbnail = volumeInfo.imageLinks?.thumbnail;
+	const thumbnail = volumeInfo.imageLinks?.thumbnail; //get the thumbnail image link from the volumeInfo object
 	const description =
 		volumeInfo.description?.slice(0, 200) + '...' || 'No Description Available'; //if description is undefined, set to 'No Description Available'
 	const descriptionDetailed =
@@ -26,17 +29,22 @@ const BookCard = ({ book }) => {
 	return (
 		<div>
 			<div className={styles.card}>
-				{thumbnail ? (
+				{thumbnail && !imageError ? (
 					<div className={styles.thumbnailContainer}>
 						<img
 							src={thumbnail}
 							alt={`${title} cover`}
 							className={styles.thumbnail}
-							onError={handleImageError} //call handleImageError if there is an error loading the image
+							onError={handleImageError} //call handleImageError if there is an error or a corrupt link
 						/>
 					</div>
 				) : (
-					<div className={styles.placeholder}>No cover available</div>
+					<div className={styles.placeholder}>
+						<div className={styles.icon}>
+							<IoIosImages />
+						</div>
+						<div> No cover available</div>
+					</div>
 				)}
 				<div className={styles.content}>
 					<h2 className={styles.title}>{title}</h2>

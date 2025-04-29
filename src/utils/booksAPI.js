@@ -8,7 +8,7 @@ It handles errors gracefully by logging them to the console and returning an emp
 export async function fetchBooks(query) {
 	try {
 		//https://developers.google.com/books/docs/v1/using
-		const url = `${BASE_URL}?q=${query}&orderBy=newest&maxResults=20&key=${API_KEY}`;
+		const url = `${BASE_URL}?q=${query}&orderBy=newest&maxResults=40&key=${API_KEY}`;
 		const response = await fetch(url);
 
 		if (!response.ok) {
@@ -16,7 +16,7 @@ export async function fetchBooks(query) {
 		}
 
 		const data = await response.json();
-		return data.items || [];
+		return data.items || []; // Return an empty array if no items are found
 	} catch (error) {
 		console.error('Error fetching books:', error);
 		return []; // Return an empty array in case of error

@@ -10,19 +10,19 @@
     justify-content: space-between;
     background: white;
     border-radius: 8px;
-    box-shadow: v.$highlights 0px 0px 0px 3px, #06182ca6 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+    box-shadow: v.$highlights 0px 0px 0px 3px, v.$primary 0px 4px 6px -1px;
     transition: transform 0.3s ease;
 
 
     &:hover {
         transform: translateY(-9px);
-        // border: 1px solid v.$tertiary;
     }
 }
 
 
 
 .placeholder {
+    // Placeholder for the image
     width: 100%;
     height: 200px;
     background: v.$primary;
@@ -30,10 +30,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 1rem;
     border-radius: 8px 8px 0 0;
-    ;
+    gap: 0.5rem;
+
+    & .icon {
+        font-size: 2rem;
+    }
 }
+
 
 
 .content {
@@ -41,7 +46,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    overflow-y: scroll; // Re-enable overflow-y for scrolling
+    overflow-y: scroll; // allows scrolling if content overflows
     scrollbar-width: none;
 }
 
@@ -85,20 +90,26 @@
 }
 
 .detailsButton {
-    background: v.$primary;
-    color: white;
+    background: 0 0;
+    color: v.$primary;
     border: none;
     padding: 0.3rem 0.8rem;
     border-radius: 4px;
     cursor: pointer;
     font-size: 0.8rem;
+    border: 2px solid v.$primary;
+    font-weight: 600;
+
+    &:hover {
+        border-bottom: 4px solid v.$tertiary;
+        border-radius: 4px;
+    }
 }
 
 
 .thumbnailContainer {
     margin: 10px 0;
     width: 100%;
-    aspect-ratio: 6 / 4;
     display: flex;
     align-items: center;
     justify-content: center;

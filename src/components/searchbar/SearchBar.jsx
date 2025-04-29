@@ -4,7 +4,7 @@ import { GoSearch } from 'react-icons/go';
 import styles from './SearchBar.module.scss';
 
 const SearchBar = ({ onSearch }) => {
-	const [query, setQuery] = useState('');
+	const [query, setQuery] = useState(''); // State to hold the search query
 
 	const handleSubmit = (e) => {
 		e.preventDefault();

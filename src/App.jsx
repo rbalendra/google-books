@@ -25,11 +25,11 @@ function App() {
 				// Check if the query is not a genre search
 				setActiveGenre(null);
 			}
-			const results = await fetchBooks(query);
-			setBooks(results);
+			const results = await fetchBooks(query); //fetch the books from the api
+			setBooks(results); //set the books state to the results from the api
 			setLoading(false);
 		} catch (error) {
-			console.error('Error fetching books:', error);
+			console.error('Error fetching books:', error); // Handle error
 			setLoading(false);
 		}
 	};
@@ -58,7 +58,7 @@ function App() {
 
 	return (
 		<Layout>
-			<SearchBar onSearch={handleSearch} />
+			<SearchBar onSearch={handleSearch} />{' '}
 			<GenreButton
 				onSelectGenre={handleGenreSelect}
 				activeGenre={activeGenre}

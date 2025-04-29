@@ -10,6 +10,14 @@ const GenreButton = ({ onSelectGenre, activeGenre }) => {
 		'self-help',
 		'romance',
 		'biography',
+		'thriller',
+		'fantasy',
+		'health',
+		'travel',
+		'cookbook',
+		'medicine',
+		'social science',
+		'psychology',
 	];
 
 	return (
