@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styles from './BookCard.module.scss';
 import Modal from '../modal/Modal';
 import { IoIosImages } from 'react-icons/io';
+import { PiDotsThreeCircleDuotone } from 'react-icons/pi';
 
 const BookCard = ({ book }) => {
 	const [isModalOpen, setIsModalOpen] = useState(false); //state to handle modal open and close
@@ -15,8 +16,23 @@ const BookCard = ({ book }) => {
 	const { pageCount, publisher, publishedDate, title, subtitle } = volumeInfo; //destructure the volumeInfo object to get pageCount, publisher, publishedDate, title and subtitle
 	const authors = volumeInfo.authors?.join(', ') || 'Unknown Author'; //if authors is undefined, set to 'Unknown Author'
 	const thumbnail = volumeInfo.imageLinks?.thumbnail; //get the thumbnail image link from the volumeInfo object
-	const description =
-		volumeInfo.description?.slice(0, 200) + '...' || 'No Description Available'; //if description is undefined, set to 'No Description Available'
+
+	/*-------/ reducing description amount to show without chopping words halfway /---------*/
+	const rawDesc = volumeInfo.description || 'No description available';
+	const maxLenChars = 200;
+	let description;
+
+	if (rawDesc.length > maxLenChars) {
+		//if the description is longer than maxLenChars
+		const slicedDesc = rawDesc.slice(0, maxLenChars); //slice the description to maxLenChars at 200characters
+		const lastSpaceIndex = slicedDesc.lastIndexOf(' '); // this method will search backwards through slice for exact substring match of ' '
+		// console.log(lastSpaceIndex);
+		description = slicedDesc.slice(0, lastSpaceIndex) + ` ...`; //slice the description to the last space index and add '...' at the end
+	} else {
+		description = rawDesc;
+	}
+	/*-------------------------------------------------------------------------------------*/
+
 	const descriptionDetailed =
 		volumeInfo.description || 'No Description Available';
 	const categories =
