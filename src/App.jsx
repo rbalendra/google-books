@@ -15,7 +15,7 @@ import { FourSquare } from 'react-loading-indicators'; //loading animation
 function App() {
 	const [books, setBooks] = useState([]); //hold the search results
 	const [loading, setLoading] = useState(true); //created for loading states
-	const [activeGenre, setActiveGenre] = useState('Non-Fiction'); //create for active genre state on the genre buttons
+	const [activeGenre, setActiveGenre] = useState(''); //create for active genre state on the genre buttons
 
 	const handleSearch = async (query) => {
 		try {
