@@ -1,0 +1,17 @@
+@use '../../styles/variables' as v;
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.error {
+    background-color: v.$tertiary;
+    color: white;
+    padding: 1rem;
+    border-radius: .3rem;
+    text-align: center;
+    margin: 1rem 0;
+}
