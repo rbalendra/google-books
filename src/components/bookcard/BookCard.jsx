@@ -11,7 +11,6 @@ const BookCard = ({ book }) => {
 	// console.log(book); //log the book object to the console to see its structure
 
 	//get all the book info
-	console.log(book.volumeInfo); //log the book object to the console to see its structure
 	const { volumeInfo } = book; //destructure the book object to get volumeInfo
 	const { pageCount, publisher, publishedDate, title, subtitle } = volumeInfo; //destructure the volumeInfo object to get pageCount, publisher, publishedDate, title and subtitle
 	const authors = volumeInfo.authors?.join(', ') || 'Unknown Author'; //if authors is undefined, set to 'Unknown Author'
@@ -34,7 +33,7 @@ const BookCard = ({ book }) => {
 	/*-------------------------------------------------------------------------------------*/
 
 	const descriptionDetailed =
-		volumeInfo.description || 'No Description Available';
+		volumeInfo.description || 'No Description Available'; //for the modal
 	const categories =
 		volumeInfo.categories?.join(', ') || 'No Categories Available'; //if categories is undefined, set to 'No Categories Available'
 
@@ -81,6 +80,9 @@ const BookCard = ({ book }) => {
 			{/* /* Add a modal to show more details about the book when the button is
 			clicked */}
 			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+				{' '}
+				{/* isOpen is a prop that controls the modal open and close */}
+				{/* onClose is a prop that closes the modal when the close button is clicked */}
 				<h2>{title}</h2>
 				<p style={{ display: 'flex', justifyContent: 'center' }}>
 					{thumbnail && !imageError ? (
