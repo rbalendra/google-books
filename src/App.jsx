@@ -9,6 +9,10 @@ function App() {
 	const [searchQuery, setSearchQuery] = useState(null); // this will hold the search query from the search bar
 	const [activeGenre, setActiveGenre] = useState(null); // this will hold the active genre from the genre buttons
 
+	const [currentPage, setCurrentPage] = useState(1); // this will hold the current page number for pagination
+	const [totalPages, setTotalPages] = useState(10); // this will hold the total number of pages for pagination
+	0;
+
 	const handleSearch = (query) => {
 		// this function will be called when the user submits the search bar
 		setSearchQuery(query);

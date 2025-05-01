@@ -12,6 +12,11 @@ const BookLoader = ({ searchQuery, genre }) => {
 	const [currentQuery, setCurrentQuery] = useState(''); //currentQuery state to hold the current search query
 	const [isInitialLoad, setIsInitialLoad] = useState(true); //isInitialLoad state to indidicate whether this is the first time the component is loading or not when the component mounts
 
+	const [displayCount, setDisplayCount] = useState(11); //displayCount state to hold the number of books to display
+
+	const booksPerPage = books.slice(0, displayCount); //booksPerPage state to hold the number of books to display per page
+	const bookCountArray = [5, 10, 20, 30, 40]; //array of book counts to display per page
+
 	///NOTE - The useEffect hook is used to perform side effects in functional components. It takes two arguments: a function and an array of dependencies. The function is executed after the component renders, and the array of dependencies determines when the effect should be re-run. In this case, the effect is re-run whenever the searchQuery or genre changes or when the isInitialLoad changes.
 
 	useEffect(() => {
@@ -23,7 +28,7 @@ const BookLoader = ({ searchQuery, genre }) => {
 			return; //exit the function
 		}
 
-		//NOTE - The isGenreSearch is used to determine if the search is a genre search or a normal search. If the genre is not null, then it is a genre search. The query variable is set to either the genre or the searchQuery. If both are empty, it defaults to 'computers' because I wanted to show the top 10 books or trending books but unfortunately google books API don't have a valid endpoint for that.
+		//NOTE - The isGenreSearch is used to determine if the search is a genre button search or a normal search. If the genre is not null, then it is a genre search. The query variable is set to either the genre or the searchQuery. If both are empty, it defaults to 'computers' because I wanted to show the top 10 books or trending books but unfortunately google books API don't have a valid endpoint for that.
 
 		const isGenreSearch = genre != null;
 		const query = isGenreSearch
@@ -83,11 +88,11 @@ const BookLoader = ({ searchQuery, genre }) => {
 
 	// No books found message
 	if (!books || books.length === 0) {
-		// Don't show during initial load
+		// Don't show the error message during initial load
 		if (!isInitialLoad) {
 			return (
 				<div className={styles.error}>
-					<p>No results found. Please try another title.</p>
+					<p>No results found. Please type in search or choose genre </p>
 				</div>
 			);
 		}
@@ -95,6 +100,7 @@ const BookLoader = ({ searchQuery, genre }) => {
 
 	return (
 		<>
+			{/* //this will render the search term typed by the user in the search bar */}
 			{currentQuery && (
 				<div className={styles.searchInfo}>
 					<h3>
@@ -103,7 +109,24 @@ const BookLoader = ({ searchQuery, genre }) => {
 					</h3>
 				</div>
 			)}
-			<BookList books={books} />
+
+			{/* NOTE if there are books ffound give the option to user to choose how many books to display per page by iterating over the bookCountArray and displaying the buttons */}
+			{books.length > 0 && (
+				<div className={styles.displayOptions}>
+					<span>Show books per page: </span>
+					{bookCountArray.map((count) => (
+						<button
+							key={count}
+							onClick={() => setDisplayCount(count)}
+							className={`${styles.countButton} ${
+								displayCount === count ? styles.activeCount : ''
+							}`}>
+							{count}
+						</button>
+					))}
+				</div>
+			)}
+			<BookList books={booksPerPage} />
 		</>
 	);
 };

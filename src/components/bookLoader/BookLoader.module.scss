@@ -25,7 +25,6 @@
         margin: 0 auto;
         font-weight: normal;
         border-bottom: 3px solid v.$tertiary;
-
         padding: 5px;
         width: 400px;
     }
@@ -36,4 +35,50 @@
         font-style: italic;
         padding: px;
     }
+}
+
+
+
+.displayOptions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+
+    span {
+        color: v.$secondary;
+        font-size: 0.9rem;
+    }
+}
+
+.countButton {
+    padding: 0.4rem 0.8rem;
+    background-color: white;
+    border-radius: 4px;
+    color: v.$secondary;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.6rem;
+    font-weight: 900;
+    border: none;
+
+    &:hover {
+        background-color: v.$highlights;
+        color: v.$text;
+    }
+}
+
+.activeCount {
+    background-color: v.$highlights;
+    color: v.$text;
+    font-weight: bold;
+}
+
+.resultsInfo {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid v.$highlights;
 }

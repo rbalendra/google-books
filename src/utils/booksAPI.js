@@ -1,5 +1,6 @@
 const BASE_URL = 'https://www.googleapis.com/books/v1/volumes';
 const API_KEY = import.meta.env.VITE_GOOGLE_BOOKS_API_KEY;
+//TODO - NEED TO HIDE THIS API KEY IN THE BACKEND!!!!!!!!
 //https://vite.dev/guide/env-and-mode
 
 /* this function fetches the books from google books API based on the search query. It makes an async request to the API and returns the results.

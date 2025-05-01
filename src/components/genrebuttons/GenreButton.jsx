@@ -20,6 +20,8 @@ const GenreButton = ({ onSelectGenre, activeGenre }) => {
 		'psychology',
 	];
 
+	//NOTE - The GenreButton component is a functional component that takes two props: onSelectGenre and activeGenre. The onSelectGenre prop is a function that is called when a genre button is clicked, and the activeGenre prop is used to determine which genre button should be highlighted as active.
+
 	return (
 		<div className={styles.container}>
 			<h3 className={styles.title}>Popular Genres</h3>
