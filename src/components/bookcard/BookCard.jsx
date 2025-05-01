@@ -77,7 +77,7 @@ const BookCard = ({ book }) => {
 					</button>
 				</div>
 			</div>
-			{/* /* Add a modal to show more details about the book when the button is
+			{/* /* Adds a modal to show more details about the book when the button is
 			clicked */}
 			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
 				{' '}
